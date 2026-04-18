@@ -7,6 +7,7 @@ import {
   FaInstagram,
 } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -18,9 +19,19 @@ export default function Footer() {
         className="rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-8 md:p-12"
       >
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
-          {/* Brand */}
+          
+          {/* ✅ Brand (LOGO ADDED) */}
           <div className="md:col-span-2">
-            <h3 className="text-2xl font-bold font-brand">ZeroTrace</h3>
+            <div className="flex items-center">
+              <Image
+                src="/logo.png"
+                alt="ZeroTrace Logo"
+                width={160}
+                height={50}
+                className="h-10 w-auto object-contain"
+                priority
+              />
+            </div>
 
             <p className="mt-4 text-white/60 leading-relaxed max-w-md">
               Secure. Build. Innovate.
@@ -43,9 +54,6 @@ export default function Footer() {
               <a href="#portfolio" className="block hover:text-white transition">
                 Portfolio
               </a>
-              <a href="#blog" className="block hover:text-white transition">
-                Blog
-              </a>
               <a href="#contact" className="block hover:text-white transition">
                 Contact
               </a>
@@ -60,10 +68,22 @@ export default function Footer() {
 
             <div className="flex gap-3">
               {[
-                { icon: FaGithub, href: "https://github.com/Pushpak3504" },
-                { icon: FaLinkedinIn, href: "https://www.linkedin.com/in/pushpak-bhosale/" },
-                { icon: FaInstagram, href: "https://www.instagram.com/pushpak_3504" },
-                { icon: HiOutlineMail, href: "mailto:pushpak3504@gmail.com" },
+                {
+                  icon: FaGithub,
+                  href: "https://github.com/Pushpak3504",
+                },
+                {
+                  icon: FaLinkedinIn,
+                  href: "https://www.linkedin.com/in/pushpak-bhosale/",
+                },
+                {
+                  icon: FaInstagram,
+                  href: "https://www.instagram.com/pushpak_3504",
+                },
+                {
+                  icon: HiOutlineMail,
+                  href: "mailto:pushpak3504@gmail.com",
+                },
               ].map((item, i) => {
                 const Icon = item.icon;
 
@@ -71,6 +91,8 @@ export default function Footer() {
                   <a
                     key={i}
                     href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-10 h-10 rounded-xl border border-white/10 bg-white/5 flex items-center justify-center hover:border-violet-400/30 hover:bg-violet-500/10 transition"
                   >
                     <Icon className="w-5 h-5 text-white/70" />
@@ -81,6 +103,7 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Bottom */}
         <div className="mt-10 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between gap-4 text-sm text-white/40">
           <p>© 2026 ZeroTrace. All rights reserved.</p>
           <p>Built with precision by ZeroTrace.</p>

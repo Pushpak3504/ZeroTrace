@@ -6,21 +6,21 @@ import { Quote, Star } from "lucide-react";
 const testimonials = [
   {
     name: "Student Testimonial",
-    role: "Cybersecurity Project",
+    role: "DevSecOps Pipeline with Kubernetes",
     quote:
-      "ZeroTrace helped me understand the architecture behind my project instead of just giving me deliverables. The viva preparation support was incredibly valuable.",
+      "ZeroTrace guided me through building a complete end-to-end DevSecOps pipeline with Kubernetes. I initially struggled with cloud infrastructure and understanding the full workflow, but the step-by-step mentorship made everything clear. By the end, I had a production-style setup across multiple machines and felt genuinely job-ready.",
   },
   {
     name: "Student Testimonial",
-    role: "DevSecOps Pipeline Project",
+    role: "Cybersecurity / Web Application Security",
     quote:
-      "The mentoring approach made complex DevSecOps concepts easy to understand. Documentation and deployment guidance were top-notch.",
+      "ZeroTrace helped simplify cybersecurity concepts through practical lab guidance and real-world web application security techniques. I was initially confused about how to approach both theory and hands-on exercises, but the structured mentoring made everything clear. It significantly improved my understanding and confidence during evaluations.",
   },
   {
     name: "Student Testimonial",
-    role: "GRC / ISMS Platform",
+    role: "GRC / ISO 27001 Implementation",
     quote:
-      "What stood out was the real industry explanation behind every technical decision. It felt like working with an actual engineering team.",
+      "ZeroTrace explained the end-to-end implementation of ISO 27001 in a way that connected theory with real organizational practices. I was able to clearly understand how GRC works in real environments and why compliance frameworks are critical. The mentorship gave me a much deeper and practical perspective beyond academic learning.",
   },
 ];
 
@@ -44,8 +44,8 @@ export default function Testimonials() {
         </h2>
 
         <p className="mt-5 text-white/65 text-lg leading-relaxed">
-          Early feedback from students and mentees who experienced the
-          ZeroTrace approach.
+          Feedback from students who experienced hands-on mentorship focused on
+          real-world technical skills and industry practices.
         </p>
       </motion.div>
 
@@ -93,7 +93,7 @@ export default function Testimonials() {
               ))}
             </div>
 
-            {/* Quote Text (FIXED) */}
+            {/* Quote */}
             <p className="relative z-10 text-white/65 leading-relaxed">
               {`"${testimonial.quote}"`}
             </p>
