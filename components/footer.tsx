@@ -60,10 +60,10 @@ export default function Footer() {
 
             <div className="flex gap-3">
               {[
-                { icon: FaGithub, href: "#" },
-                { icon: FaLinkedinIn, href: "#" },
-                { icon: FaInstagram, href: "#" },
-                { icon: HiOutlineMail, href: "#" },
+                { icon: FaGithub, href: "https://github.com/Pushpak3504" },
+                { icon: FaLinkedinIn, href: "https://www.linkedin.com/in/pushpak-bhosale/" },
+                { icon: FaInstagram, href: "https://www.instagram.com/pushpak_3504" },
+                { icon: HiOutlineMail, href: "mailto:pushpak3504@gmail.com" },
               ].map((item, i) => {
                 const Icon = item.icon;
 

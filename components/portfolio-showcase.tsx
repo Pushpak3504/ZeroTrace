@@ -4,46 +4,61 @@ import { motion } from "framer-motion";
 
 const projects = [
   {
-    title: "Secure Cloud File Upload System",
-    domain: "Cloud Security",
-    stack: ["AWS", "IAM", "S3", "Presigned URLs"],
-    description:
-      "Implemented secure direct-to-cloud file uploads using temporary credentials with strict access control.",
-  },
-  {
-    title: "DevSecOps CI/CD Pipeline",
+    title: "End-to-End DevOps Deployment Pipeline",
     domain: "DevSecOps",
-    stack: ["Docker", "GitHub Actions", "Trivy", "SonarQube"],
+    stack: [
+      "Git",
+      "GitHub",
+      "SonarQube",
+      "Trivy",
+      "Docker",
+      "Jenkins",
+      "Prometheus",
+      "Grafana",
+    ],
     description:
-      "Built a full CI/CD pipeline integrating automated security scans, code analysis, and container hardening.",
+      "Built a scalable DevOps pipeline enabling automated build, test, and deployment workflows using containerized infrastructure and continuous integration practices.",
+    link: "https://github.com/Pushpak3504/DevOpsProject",
   },
   {
-    title: "Kubernetes Monitoring Stack",
-    domain: "DevOps",
-    stack: ["Kubernetes", "Prometheus", "Grafana"],
+    title: "Ransomware Simulation, Detection & Isolation System",
+    domain: "CyberSecurity",
+    stack: ["Bash", "Kali Linux", "Nmap", "Metasploit", "John The Ripper", "AES-256 Encryption", "Auditd", "CIS Benchmarks", "IPTables"],
     description:
-      "Deployed cluster monitoring with real-time metrics, alerting, and dashboard visualization.",
+      "Developed a ransomware simulation environment to demonstrate real-world attack behavior, combined with detection and isolation mechanisms to identify malicious activity and contain infected systems in controlled environments.",
+    link: "https://github.com/Pushpak3504/Ransomware-Simulation-Detection-and-Isolation",
   },
   {
-    title: "SIEM Log Analysis Platform",
-    domain: "Cybersecurity",
-    stack: ["SIEM", "Log Analysis", "Threat Detection"],
+    title: "SecOps Pipeline for Threat Detection & Monitoring",
+    domain: "SecOps",
+    stack: ["ELK Stack", "Log Analysis", "Threat Detection", "Monitoring", "Alerting"],
     description:
-      "Designed a centralized log monitoring system for detecting suspicious activity and anomalies.",
+      "Developed a security operations (SecOps) pipeline for centralized log collection, analysis, and threat detection, enabling real-time monitoring and alerting to identify suspicious activity across systems.",
+    link: "https://github.com/tanmayrannavare/secops",
   },
   {
-    title: "Infrastructure as Code Setup",
-    domain: "Cloud / DevOps",
-    stack: ["Terraform", "AWS", "Automation"],
+    title: "Static Website Deployment with CI/CD Workflow",
+    domain: "Cloud",
+    stack: ["AWS", "EC2", "VPC", "CloudFront", "Jenkins"],
     description:
-      "Automated infrastructure provisioning with modular Terraform configurations and best practices.",
+      "Designed and deployed a static website with integrated CI/CD workflow, enabling automated build and deployment processes while demonstrating practical web hosting and version control practices.",
+    link: "https://github.com/tanmayrannavare/StaticWebsite",
   },
   {
-    title: "Web App Security Testing Suite",
-    domain: "Cybersecurity",
-    stack: ["OWASP ZAP", "Burp Suite", "Manual Testing"],
+    title: "Linux Web Server Adversary Emulation & SOC Detection Lab",
+    domain: "CyberSecurity / SOC",
+    stack: ["Linux", "Apache", "Suricata", "Wazuh", "SIEM", "MITRE ATT&CK", "Threat Detection", "Incident Response"],
     description:
-      "Performed vulnerability assessments including XSS, SQLi, and authentication flaws.",
+      "Engineered a security operations lab to simulate adversary attacks on a Linux web server, integrating Suricata-based network monitoring, Wazuh log analysis, MITRE-mapped detection rules, and active response mechanisms for real-time threat detection and containment.",
+    link: "https://github.com/kaiziyo/linux-webserver-adversary-emulation-soc-lab",
+  },
+  {
+    title: "Automated Hybrid Cloud Infrastructure with IaC & CI/CD",
+    domain: "DevSecOps / Infrastructure Automation",
+    stack: ["Terraform", "CI/CD", "Hybrid Cloud", "Infrastructure as Code", "Automation", "Cloud Deployment"],
+    description:
+      "Built an end-to-end hybrid cloud automation pipeline integrating Infrastructure as Code (IaC) and CI/CD workflows to provision, configure, and manage infrastructure across environments with improved scalability, consistency, and operational efficiency.",
+    link: "https://github.com/CDAC-PROJECT0825/auto-hybrid-infra",
   },
 ];
 
@@ -131,9 +146,14 @@ export default function Portfolio() {
 
             {/* CTA */}
             <div className="relative z-10 mt-6">
-              <button className="text-sm text-violet-400 hover:text-violet-300 transition">
-                View Details →
-              </button>
+              <a
+                href={project.link || "#"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-violet-400 hover:text-violet-300 transition"
+              >
+                View Project →
+              </a>
             </div>
           </motion.div>
         ))}
