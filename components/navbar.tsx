@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { whatsappLink } from "@/lib/whatsapp";
+import Image from "next/image";
 
 const navItems = [
   { label: "Services", href: "#services" },
@@ -42,9 +43,16 @@ export default function Navbar() {
         `}
       >
         <div className="flex items-center justify-between">
-          {/* Brand */}
-          <div className="text-xl font-semibold tracking-tight font-brand">
-            ZeroTrace
+          {/* ✅ LOGO (REPLACED TEXT) */}
+          <div className="flex items-center">
+            <Image
+              src="/logo.png" // place your image in /public/logo.png
+              alt="ZeroTrace Logo"
+              width={150}
+              height={40}
+              className="h-8 md:h-10 w-auto object-contain"
+              priority
+            />
           </div>
 
           {/* Nav Links */}
@@ -56,7 +64,6 @@ export default function Navbar() {
                 className="group relative hover:text-white transition"
               >
                 {item.label}
-
                 <span className="absolute -bottom-1 left-0 h-px w-0 bg-violet-400 transition-all duration-300 group-hover:w-full" />
               </a>
             ))}

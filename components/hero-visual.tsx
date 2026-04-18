@@ -8,15 +8,14 @@ import {
   useTransform,
 } from "framer-motion";
 import { useState } from "react";
+import Image from "next/image";
 
 export default function HeroVisual() {
   const [hovered, setHovered] = useState(false);
 
-  // Absolute cursor position
   const cursorX = useMotionValue(0);
   const cursorY = useMotionValue(0);
 
-  // Relative center position for tilt
   const tiltX = useMotionValue(0);
   const tiltY = useMotionValue(0);
 
@@ -109,7 +108,7 @@ export default function HeroVisual() {
         className="absolute w-72 h-72 rounded-full border border-violet-400/20 border-dashed"
       />
 
-      {/* Main Orb */}
+      {/* MAIN ORB */}
       <motion.div
         style={{
           rotateX,
@@ -129,11 +128,16 @@ export default function HeroVisual() {
         <div className="absolute inset-4 rounded-full border border-white/10" />
         <div className="absolute w-28 h-28 rounded-full bg-violet-400/40 blur-3xl" />
 
-        <div className="relative z-10 text-center">
-          <p className="font-brand text-5xl font-bold">0</p>
-          <p className="text-xs text-white/40 mt-1 font-mono tracking-[0.3em]">
-            TRACE
-          </p>
+        {/* ✅ LOGO REPLACED HERE */}
+        <div className="relative z-10 flex items-center justify-center">
+          <Image
+            src="/trace-icon.png"
+            alt="ZeroTrace Icon"
+            width={80}
+            height={80}
+            className="w-16 h-16 md:w-20 md:h-20 object-contain opacity-90"
+            priority
+          />
         </div>
       </motion.div>
 

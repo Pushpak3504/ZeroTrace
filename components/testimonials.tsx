@@ -27,6 +27,7 @@ const testimonials = [
 export default function Testimonials() {
   return (
     <section className="max-w-7xl mx-auto px-6 py-28">
+      {/* Heading */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -48,6 +49,7 @@ export default function Testimonials() {
         </p>
       </motion.div>
 
+      {/* Cards */}
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -75,10 +77,13 @@ export default function Testimonials() {
             }}
             className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-6"
           >
+            {/* Hover Glow */}
             <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-br from-violet-500/10 to-transparent" />
 
+            {/* Quote Icon */}
             <Quote className="relative z-10 w-8 h-8 text-violet-400/70 mb-5" />
 
+            {/* Stars */}
             <div className="relative z-10 flex gap-1 mb-4">
               {Array.from({ length: 5 }).map((_, i) => (
                 <Star
@@ -88,13 +93,19 @@ export default function Testimonials() {
               ))}
             </div>
 
+            {/* Quote Text (FIXED) */}
             <p className="relative z-10 text-white/65 leading-relaxed">
-              "{testimonial.quote}"
+              {`"${testimonial.quote}"`}
             </p>
 
+            {/* Author */}
             <div className="relative z-10 mt-6">
-              <p className="font-semibold text-white">{testimonial.name}</p>
-              <p className="text-sm text-violet-400">{testimonial.role}</p>
+              <p className="font-semibold text-white">
+                {testimonial.name}
+              </p>
+              <p className="text-sm text-violet-400">
+                {testimonial.role}
+              </p>
             </div>
           </motion.div>
         ))}
