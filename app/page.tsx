@@ -16,6 +16,7 @@ import FinalCTA from "@/components/final-cta";
 import Footer from "@/components/footer";
 import ContactSection from "@/components/contact-section";
 import { whatsappLink } from "@/lib/whatsapp";
+import JoinSection from "@/components/join-section";
 
 export default function Home() {
   return (
@@ -149,6 +150,7 @@ export default function Home() {
         <PortfolioShowcase />
         <ProcessTimeline />
         <Testimonials />
+	<JoinSection />
         <FinalCTA />
         <ContactSection />
         <Footer />

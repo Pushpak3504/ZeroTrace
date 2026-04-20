@@ -8,6 +8,7 @@ import Image from "next/image";
 const navItems = [
   { label: "Services", href: "#services" },
   { label: "Portfolio", href: "#portfolio" },
+  { label: "Join ZeroTrace", href: "#join", highlight: true }, // ✅ ADDED
   { label: "Contact", href: "#contact" },
 ];
 
@@ -43,10 +44,11 @@ export default function Navbar() {
         `}
       >
         <div className="flex items-center justify-between">
-          {/* ✅ LOGO (REPLACED TEXT) */}
+          
+          {/* LOGO */}
           <div className="flex items-center">
             <Image
-              src="/logo.png" // place your image in /public/logo.png
+              src="/logo.png"
               alt="ZeroTrace Logo"
               width={150}
               height={40}
@@ -55,21 +57,27 @@ export default function Navbar() {
             />
           </div>
 
-          {/* Nav Links */}
+          {/* NAV LINKS */}
           <div className="hidden md:flex items-center gap-8 text-sm text-white/70">
             {navItems.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
-                className="group relative hover:text-white transition"
+                className={`group relative transition ${
+                  item.highlight
+                    ? "text-violet-400 hover:text-white"
+                    : "hover:text-white"
+                }`}
               >
                 {item.label}
+
+                {/* underline */}
                 <span className="absolute -bottom-1 left-0 h-px w-0 bg-violet-400 transition-all duration-300 group-hover:w-full" />
               </a>
             ))}
           </div>
 
-          {/* WhatsApp CTA */}
+          {/* CTA */}
           <motion.a
             href={whatsappLink(
               "Hi ZeroTrace, I want to discuss my project/mentorship requirement."
