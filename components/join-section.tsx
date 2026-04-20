@@ -9,7 +9,20 @@ import {
 import { useState } from "react";
 import { whatsappLink } from "@/lib/whatsapp";
 
-const team = [
+// ✅ TYPES
+type TeamMember = {
+  name: string;
+  role: string;
+  desc: string;
+  highlight?: boolean;
+};
+
+type TeamCardProps = {
+  member: TeamMember;
+  onClick: (member: TeamMember) => void;
+};
+
+const team: TeamMember[] = [
   {
     name: "Soham Kusmude",
     role: "Founder • DevSecOps • Cybersecurity",
@@ -39,14 +52,14 @@ const roles = [
   "Frontend Developers",
 ];
 
-function TeamCard({ member, onClick }: any) {
+function TeamCard({ member, onClick }: TeamCardProps) {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
   const rotateX = useTransform(y, [-120, 120], [12, -12]);
   const rotateY = useTransform(x, [-120, 120], [-12, 12]);
 
-  function handleMove(e: any) {
+  function handleMove(e: React.MouseEvent<HTMLDivElement>) {
     const rect = e.currentTarget.getBoundingClientRect();
     const px = e.clientX - rect.left - rect.width / 2;
     const py = e.clientY - rect.top - rect.height / 2;
@@ -75,10 +88,8 @@ function TeamCard({ member, onClick }: any) {
         }
       `}
     >
-      {/* Glow */}
       <div className="absolute inset-0 opacity-0 hover:opacity-100 transition bg-gradient-to-br from-violet-500/20 to-transparent rounded-2xl" />
 
-      {/* Avatar */}
       <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-violet-500 to-blue-500 flex items-center justify-center text-lg font-bold mb-4">
         {member.name.charAt(0)}
       </div>
@@ -90,26 +101,23 @@ function TeamCard({ member, onClick }: any) {
 }
 
 export default function JoinSection() {
-  const [active, setActive] = useState<any>(null);
+  const [active, setActive] = useState<TeamMember | null>(null);
 
-  // spotlight
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
   return (
-    <section id="join"
+    <section
+      id="join"
       onMouseMove={(e) => {
         mouseX.set(e.clientX);
         mouseY.set(e.clientY);
       }}
       className="relative max-w-7xl mx-auto px-6 py-32 overflow-hidden"
     >
-      {/* 🔥 Cursor Spotlight */}
+      {/* Cursor Glow */}
       <motion.div
-        style={{
-          left: mouseX,
-          top: mouseY,
-        }}
+        style={{ left: mouseX, top: mouseY }}
         className="pointer-events-none fixed z-50 w-64 h-64 bg-violet-500/20 blur-3xl rounded-full -translate-x-1/2 -translate-y-1/2"
       />
 
@@ -129,24 +137,19 @@ export default function JoinSection() {
         </h2>
 
         <p className="mt-5 text-white/65 text-lg leading-relaxed">
-          We are building a next-generation engineering ecosystem focused on
-          cybersecurity, DevSecOps, and real-world systems.
+          We are building a next-generation engineering ecosystem.
         </p>
       </motion.div>
 
-      {/* TEAM GRID */}
+      {/* Team */}
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16 relative z-10">
-        {team.map((member, i) => (
-          <TeamCard key={i} member={member} onClick={setActive} />
+        {team.map((member) => (
+          <TeamCard key={member.name} member={member} onClick={setActive} />
         ))}
       </div>
 
-      {/* OPEN ROLES */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        className="rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-8 text-center relative z-10"
-      >
+      {/* Roles */}
+      <div className="rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-8 text-center relative z-10">
         <h3 className="text-2xl font-semibold mb-4">
           We’re Expanding the Team
         </h3>
@@ -162,34 +165,23 @@ export default function JoinSection() {
           ))}
         </div>
 
-        <motion.a
-          href={whatsappLink(
-            "Hi, I want to join ZeroTrace and contribute."
-          )}
+        <a
+          href={whatsappLink("Hi, I want to join ZeroTrace.")}
           target="_blank"
-          whileHover={{ scale: 1.07 }}
           className="inline-block bg-violet-500 hover:bg-violet-400 px-6 py-3 rounded-xl font-medium"
         >
           Join Now →
-        </motion.a>
-      </motion.div>
+        </a>
+      </div>
 
-      {/* 🔥 MODAL */}
+      {/* Modal */}
       <AnimatePresence>
         {active && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
             className="fixed inset-0 bg-black/60 backdrop-blur-xl flex items-center justify-center z-50"
             onClick={() => setActive(null)}
           >
-            <motion.div
-              initial={{ scale: 0.8 }}
-              animate={{ scale: 1 }}
-              exit={{ scale: 0.8 }}
-              className="bg-black border border-white/10 rounded-2xl p-8 max-w-md text-center"
-            >
+            <motion.div className="bg-black border border-white/10 rounded-2xl p-8 max-w-md text-center">
               <div className="w-16 h-16 mx-auto rounded-xl bg-gradient-to-br from-violet-500 to-blue-500 flex items-center justify-center text-xl font-bold mb-4">
                 {active.name.charAt(0)}
               </div>
